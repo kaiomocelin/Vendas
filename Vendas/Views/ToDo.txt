@@ -1,0 +1,6 @@
+﻿Refatoração
+
+[X] Separação do projeto em camadas - MVC
+[X] Separar as funcionalidades em views diferentes
+[X] Separar o método de validação de CPF
+[X] Criar uma camada de manipulação dos dados
