@@ -1,36 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vendas.Models;
+﻿using System.Collections.Generic;
+using VendasConsole.Models;
 
-namespace Vendas.DAL
+namespace VendasConsole.DAL
 {
     class ProdutoDAO
     {
         private static List<Produto> produtos = new List<Produto>();
 
-        public static List<Produto> Listar() => produtos;
+        public static bool Cadastrar(Produto produto)
+        {
+            if (BuscarPorNome(produto.Nome) != null)
+            {
+                return false;
+            }
+            produtos.Add(produto);
+            return true;
+        }
 
         public static Produto BuscarPorNome(string nome)
         {
             foreach (Produto produtoCadastrado in produtos)
             {
-                if (produtoCadastrado.Nome == nome)
+                if (nome.Equals(produtoCadastrado.Nome))
                 {
                     return produtoCadastrado;
                 }
-
             }
             return null;
         }
-        public static bool Cadastrar(Produto produto)
-        {
-            if (BuscarPorNome(produto.Nome) == null)
-            {
-                produtos.Add(produto);
-                return true;
-            }
-            return false;
-        }
+
+        public static List<Produto> Listar() => produtos;
+
     }
 }

@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Vendas.Utils
+namespace VendasConsole.Utils
 {
     class Validacao
     {
-        public static bool ValidarTamanhoCpf(string cpf) => cpf.Length != 11;
+        private static bool ValidarTamanhoCpf(string cpf) => cpf.Length != 11;
         public static bool ValidarCpf(string cpf)
         {
-            int peso = 10, soma = 0, resto = 0, digito1;
+            int peso = 10, soma = 0, resto, digito1, digito2;
+
             cpf = cpf.Replace(".", "").Replace("-", "");
-            
+
             if (ValidarTamanhoCpf(cpf))
             {
                 return false;
@@ -31,35 +30,38 @@ namespace Vendas.Utils
                 case "00000000000": return false;
             }
 
-            //Digito 1
+            //Digito1
             for (int i = 0; i < 9; i++)
             {
                 soma += Convert.ToInt32(cpf[i].ToString()) * peso;
                 peso--;
             }
             resto = soma % 11;
-            // if ternario: 
+
             digito1 = resto < 2 ? 0 : 11 - resto;
-            //if (resto < 2)
-            //    digito1 = 0;
-            // else
-            //    digito1 = 11 - resto;
+
             if (Convert.ToInt32(cpf[9].ToString()) != digito1)
             {
                 return false;
             }
 
-            //Digito 2
-            soma = 0; peso = 11; int digito2;
+            //Digito2
+            soma = 0;
+            peso = 11;
             for (int i = 0; i < 10; i++)
             {
                 soma += Convert.ToInt32(cpf[i].ToString()) * peso;
                 peso--;
             }
             resto = soma % 11;
-
-            digito2 = resto < 2 ? 0 : 11 - resto;
-           
+            if (resto < 2)
+            {
+                digito2 = 0;
+            }
+            else
+            {
+                digito2 = 11 - resto;
+            }
             if (Convert.ToInt32(cpf[10].ToString()) != digito2)
             {
                 return false;

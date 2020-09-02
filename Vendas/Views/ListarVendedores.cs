@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vendas.DAL;
-using Vendas.Models;
+using VendasConsole.DAL;
+using VendasConsole.Models;
 
-namespace Vendas.Views
+namespace VendasConsole.Views
 {
-    class ListarVendedores
+    class ListarVendedors
     {
         public static void Renderizar()
         {
-            Console.WriteLine(" --- LISTAR VENDEDORES --- \n");
+            Console.WriteLine(" ---- LISTAR VENDEDORES ---- \n");
             foreach (Vendedor vendedorCadastrado in VendedorDAO.Listar())
             {
                 Console.WriteLine(vendedorCadastrado);

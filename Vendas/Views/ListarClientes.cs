@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vendas.DAL;
-using Vendas.Models;
+using VendasConsole.DAL;
+using VendasConsole.Models;
 
-namespace Vendas.Views
+namespace VendasConsole.Views
 {
     class ListarClientes
     {
@@ -16,6 +14,5 @@ namespace Vendas.Views
                 Console.WriteLine(clienteCadastrado);
             }
         }
-
     }
 }

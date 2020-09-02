@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vendas.DAL;
-using Vendas.Models;
-using Vendas.Utils;
+using VendasConsole.DAL;
+using VendasConsole.Models;
+using VendasConsole.Utils;
 
-namespace Vendas.Views
+namespace VendasConsole.Views
 {
     class CadastrarCliente
     {
@@ -22,16 +20,16 @@ namespace Vendas.Views
             {
                 if (ClienteDAO.Cadastrar(c))
                 {
-                    Console.WriteLine("\nCliente cadastrado com sucesso!");
+                    Console.WriteLine("\nCliente cadastrado com sucesso!!!");
                 }
                 else
                 {
-                    Console.WriteLine("\nO cliente já existe!");
+                    Console.WriteLine("\nO cliente já existe!!!");
                 }
             }
             else
             {
-                Console.WriteLine("\nCPF inválido!");
+                Console.WriteLine("\nCPF inválido!!!");
             }
         }
     }

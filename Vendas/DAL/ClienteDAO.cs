@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vendas.Models;
+﻿using System.Collections.Generic;
+using VendasConsole.Models;
 
-namespace Vendas.DAL
+namespace VendasConsole.DAL
 {
     class ClienteDAO
     {
-
         private static List<Cliente> clientes = new List<Cliente>();
-
         public static List<Cliente> Listar() => clientes;
-
         public static Cliente BuscarPorCpf(string cpf)
         {
             foreach (Cliente clienteCadastrado in clientes)
@@ -20,7 +15,6 @@ namespace Vendas.DAL
                 {
                     return clienteCadastrado;
                 }
-
             }
             return null;
         }
